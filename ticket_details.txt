@@ -1,0 +1,39 @@
+package hasrelation3;
+
+public class Ticket {
+	private String movie_name;
+	private int no_of_tickets;
+	
+	//constructor
+	public Ticket (String moviename,int nooftick) {
+		
+		this.movie_name=moviename;
+		this.no_of_tickets=nooftick;
+	}
+
+	public String getMovie_name() {
+		return movie_name;
+	}
+
+	public void setMovie_name(String movie_name) {
+		this.movie_name = movie_name;
+	}
+
+	public int getNo_of_tickets() {
+		return no_of_tickets;
+	}
+
+	public void setNo_of_tickets(int no_of_tickets) {
+		this.no_of_tickets = no_of_tickets;
+	}
+	
+	
+	public void printTicketDetails() {
+		System.out.println("============Ticket details begins");
+		System.out.println(movie_name+" is the movie name you have booked");
+		System.out.println(no_of_tickets+"is the number of ticket booked by you");
+		
+	}
+	
+
+}

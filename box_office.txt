@@ -1,0 +1,60 @@
+package hasrelation3;
+
+import java.util.Scanner;
+
+public class BoxOffice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		Theater th1 = new Theater("pvr");
+		boolean flag = true;
+		while(flag) {
+			System.out.println("enter 1 show seat availability ");
+			System.out.println("enter 2 book ticket ");
+			System.out.println("enter 3 check ticket details ");
+			System.out.println("enter 4  cancle ticket if any");
+			System.out.println("enter 5 exit ");
+			int n=sc.nextInt();
+			switch(n) {
+			case 1:{
+				int number_of_seats=th1.getNo_of_seats();
+				System.out.println(number_of_seats+"seats are avilable");
+			}break;
+			case 2:{
+				System.out.println("Enter a movie name");
+				String movie_name=sc.next();
+				System.out.println("Enter the no of seats to be booked");
+				int num=sc.nextInt();
+				th1.setT1(new Ticket(movie_name,num));
+				int res=th1.bookTicket();
+//			    System.out.println("Succesfully booked");
+				
+				System.out.println("ticket has been succesfully booked");
+			}break;
+			case 3:{
+				System.out.println("Details of the ticket booked are as follow");
+				Ticket t=th1.getT1();
+				System.out.println(t.getMovie_name()+" is the name of a movie");
+				System.out.println(t.getNo_of_tickets()+ "are no of ticket you booked");
+//				System.out.println(t.getMovie_name());
+			}break;
+			case 4:{
+				System.out.println("enter a no of ticket to be cancled");
+				int Cancle_ticket=sc.nextInt();
+				th1.cancleSeat(Cancle_ticket);
+			}break;
+			case 5:{
+				System.out.println("thankyou");
+				flag=false;
+			}break;
+			default:{
+				System.out.println("enter a valid input");
+			}break;
+			}
+			
+		}
+
+	}
+
+}

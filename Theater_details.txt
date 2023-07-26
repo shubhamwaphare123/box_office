@@ -1,0 +1,74 @@
+package hasrelation3;
+
+public class Theater {
+	private String theatre_name;
+	private int no_of_seats=500;
+//	private int cancle_ticket;
+	//obj ref
+	private Ticket t1;
+	
+	//constructor
+	
+	public Theater(String thn ) {
+//		this.cancle_ticket=ct;
+		this.theatre_name=thn;
+		
+	}
+	public String getTheatre_name() {
+		return theatre_name;
+	}
+	public void setTheatre_name(String theatre_name) {
+		this.theatre_name = theatre_name;
+	}
+	public int getNo_of_seats() {
+		return no_of_seats;
+	}
+	public void setNo_of_seats(int no_of_seats) {
+		this.no_of_seats = no_of_seats;
+	}
+	public Ticket getT1() {
+		return t1;
+	}
+	public void setT1(Ticket t1) {
+		this.t1 = t1;
+	}
+	
+	public int bookTicket() {
+		
+		if (t1.getNo_of_tickets() <=no_of_seats) {
+			no_of_seats=no_of_seats-t1.getNo_of_tickets();
+			return t1.getNo_of_tickets();
+		}else {
+			System.out.println(t1.getNo_of_tickets()+" no of seats are not available");
+			return 0;
+		}
+	}
+	
+	
+	public void showSeatAvailability() {
+		System.out.println(no_of_seats+"available seats");
+		
+		if(t1!=null) {t1.printTicketDetails();}else {
+			System.out.println("no ticket booked for the mentioned show");
+		}
+//		t1.printTicketDetails();
+	}
+	
+	public void cancleSeat(int cancle_ticket) {
+		if(cancle_ticket<=t1.getNo_of_tickets()) {
+			no_of_seats=no_of_seats+cancle_ticket;
+			t1.setNo_of_tickets(t1.getNo_of_tickets()-cancle_ticket);
+		}else {
+			System.out.println("===============technical issue=============");
+		}
+	}
+	public void showTicketDetails() {
+		t1.printTicketDetails();
+	}
+	
+	
+	
+	
+	
+
+}
